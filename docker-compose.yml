@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  bff-products:
+    image: bff-products
+    environment:
+      PORT: 8082
+      MS_PORT: 8081
+    ports:
+      - "8082:8082"
+    extra_hosts:
+      - "ms.product.com:${MACHINE_IP}"
