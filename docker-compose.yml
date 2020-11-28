@@ -9,3 +9,14 @@ services:
       - "8082:8082"
     extra_hosts:
       - "ms.product.com:${MACHINE_IP}"
+  ms-products:
+    image: feparra/ms-products:1
+    environment:
+      PORT: 8081
+      DB_HOST: 'mongo'
+      DB_USER: 'brandDiscountsUser'
+      DB_PASSWORD: ${DB_SECRET_PASSWORD}
+    ports:
+      - "8081:8081"
+    extra_hosts:
+      - "mongo:${MACHINE_IP}"
